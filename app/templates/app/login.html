@@ -1,0 +1,50 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type = "text/css" href="{% static '/css/main.css'%}">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Space Grotesk">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Barlow">
+    <title>Document</title>
+</head>
+<body class = "login-page">
+    <div class = "title-placement">
+        <h1 class = "title-1">Sorry</h1>
+        <h1 class = "title-2">to</h1>
+        <h1 class = "title-3">bother</h1>
+        <h1 class = "title-4">you</h1>
+    </div>
+    <div class = "desc-placement">
+        <h1 class = "desc-1">To</h1>
+        <h1 class = "desc-2">message</h1>
+        <h1 class = "desc-3">someone</h1>
+        <h1 class = "desc-4">login:</h1> 
+    </div>
+    <div class = "go-mid">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class = "form-login-d">
+                <input class = "user-name-place" type="text" name="username" placeholder="Username..." class="form-control">
+        
+                
+                <input class = "password-place" type="password" name="password" placeholder="Password..." class="form-control" >
+                
+        
+                <input class = "enter-place" type="submit" value="Login">        
+
+                <div class = "sign-place">
+                    Don't have an account? <a class = "sign-link" href={% url 'register'%}>Sign Up</a>
+                 </div>
+                 {% for message in messages %}
+                 <p class = "alert" id="messages">{{message}}</p>
+                 {% endfor %}
+            </div>
+        </form>
+    </div>
+</body>
+</html>

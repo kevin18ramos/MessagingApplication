@@ -1,0 +1,9 @@
+{% load static%}
+<nav class="navbar-space">
+    
+    <h2 class = "hello-name" >{{request.user}} </h2>
+    <h2 class = "nhh1"><a class="navbar-home" href={%url 'home'%}>Account</a></h2>
+    <h2 class = "nhh2"><a class="messagelink" href={%url 'send_message'%}>Direct Message</a></h2>
+    <h2 class = "nhh3"><a class="groupchat" href={%url 'send_channel_message'%}>Admin</a></h2>
+    <h2 class = "nhh4"><a class = "logout-title" href = {%url 'logout'%}>Log out</a></h2>
+  </nav>

@@ -1,0 +1,19 @@
+{% extends 'app/main.html'%}
+{% load static %}
+
+{% block content%}
+<div = class'message_container_click'>
+    
+    {%for person in u_all%}
+    <div class = "person_contain">
+        {%if person.username != u.username%}
+            <h1 class = "message_name_display">{{person.username}}</h1>
+            <a class = "message_tag" href = "{% url 'delete_user' person.id%}""><h1>Delete User</h1></a>
+            
+        {%endif%}
+
+    </div>
+    {% endfor%}
+
+</div>
+{% endblock content%}

@@ -1,0 +1,72 @@
+{% extends 'app/main.html'%}
+{% load static %}
+
+{% block content%}
+<div class = "div-div-bod">
+    <div class = "account_info"><h1 class = "account_info1">Account</h1>
+        <h1 class = "account_info2">information</h1></div>
+    <div class = "update_place">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div = "reset_password_container">
+
+                <h1 class = "reset_password_word">Change password</h1>
+                <h2 class = "reset_password_desc">Choosing a hard-to-guess, but easy-to-remember password is important!</h2>
+
+                <input class = "original_password" type="password" name="original_password" placeholder="Password..." class="form-control">
+        
+                
+                <input class = "password_x1" type="password" name="password_x1" placeholder="New password..." class="form-control" >
+                <input class = "password_x2" type="password" name="password_x2" placeholder="New password again..." class="form-control" >
+            
+                
+        
+                <input class = "enter-place1" type="submit" value="Update">
+            </div>
+        </form>
+
+    </div>
+
+
+    <div class = "update_place2">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div = "reset_username_container">
+
+                <h1 class = "reset_username_word">Change username</h1>
+                <h2 class = "reset_username_desc">Enter your new name below.</h2>
+
+                <input class = "new_username" type="text" name="new_username" placeholder="New username..." class="form-control">
+
+                <input class = "enter-place2" type="submit" value="Update">
+            </div>
+        </form>
+    </div>
+    <div class = "Profile-pic-form-place">
+        <form method = "POST" action="">
+            <div class = "Profile-pic-form-c">
+                <img class = "qpng" src= "static/images/queen.png">
+                <img class = "cpng" src= "static/images/chopper.png">
+                <img class = "dpng" src= "static/images/dorito.png">
+                <img class = "bpng" src= "static/images/Bojack.png">
+                <h1 class = "avatar_title">Change avatar</h1>
+                <h2 class = "avatar_desc">Choose how people see you.</h2>
+                {% csrf_token %}
+                <select class = "multi_a" id="avatar" name="avatar">
+                <option value="Queen">Queen</option>
+                <option value="Choppa">Choppa</option>
+                <option value="Dorito bag">Dorito bag</option>
+                <option value="Bojack(default)">Bojack(default)</option>
+                </select>
+                <input class = "multi_a_submit" type="submit">
+            </div>
+        </form>
+    </div>
+    <div class = "message_space">
+        {% for message in messages %}
+        <p class = "alert" id="messages">{{message}}</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content%}

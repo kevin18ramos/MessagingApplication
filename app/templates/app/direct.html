@@ -1,0 +1,32 @@
+{% extends 'app/main.html'%}
+{% load static %}
+{% block content%}
+
+
+    {% for d in dm1%}
+    <div class = "direct_m_contain">
+        {%for person1 in allpeople%}
+            {% if d.sender.username == person1.name%}
+            <img class="profile-pic" src="{{person1.profile_pic.url}}" >
+            {% endif%}
+        {%endfor%}
+        <h2 class = "sender_name">{{d.sender.username}}</h1>
+        <h2 class = "message_data_css">{{d.message_data}}</h1>
+        <h2 class = "message_date_css">{{d.date_created}}</h1>
+        {% if d.sender.username == u.username%}
+            <a class = "del4" href ={% url 'delete_message' d.id%} > Delete</a>
+            <a class = "up4" href = {% url 'update_message' d.id%}> Update</a>
+        {%endif%}
+    </div>
+    {%endfor%}
+    <form method = 'POST' action = ''>
+        {% csrf_token %}
+        <div class = "message_div_c">
+            <h4 class = "text_data_input" >Message : {{form.message_data}}</h4>
+    
+            <input class = "butosendm" type = "submit" name = "Send message!" value="Send message!"/>
+        </div>
+    </form>
+    
+
+{% endblock content%}
