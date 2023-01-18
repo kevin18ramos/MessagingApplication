@@ -6,7 +6,7 @@ body{
     height: 1000px;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    background-color: orange;
+    background-color: mediumpurple;
 }
 .title-placement{
     grid-row: 2/3;
